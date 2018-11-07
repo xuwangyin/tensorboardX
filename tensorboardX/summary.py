@@ -150,7 +150,7 @@ def make_histogram(values, bins):
     if values.size == 0:
         raise ValueError('The input has no element.')
     values = values.reshape(-1)
-    counts, limits = np.histogram(values, bins=bins)
+    counts, limits = np.histogram(values, bins=bins, range=(-7.0, 7.0), density=True)
     limits = limits[1:]
     # void Histogram::EncodeToProto in histogram.cc
     for i, c in enumerate(counts):
